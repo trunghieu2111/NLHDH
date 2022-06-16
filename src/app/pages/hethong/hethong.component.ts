@@ -57,6 +57,7 @@ export class HethongComponent implements OnInit {
   }
 
   showModal(): void {
+    this.flagTableDocQuyen = false;
     this.isVisible = true;
   }
 
@@ -132,6 +133,7 @@ export class HethongComponent implements OnInit {
   }
 
   removeTienTrinh(id: any) {
+    this.flagTableDocQuyen = false;
     for (let i of this.tienTrinhs) {
       if (i.id == id) {
         this.tienTrinhs = this.tienTrinhs.filter(item => item != i);
@@ -142,6 +144,7 @@ export class HethongComponent implements OnInit {
   }
 
   editTienTrinh(id: any) {
+    this.flagTableDocQuyen = false;
     this.flagCreateorUpdateInvoiceDetail = false;
     for (let i = 0; i < this.tienTrinhs.length; i++) {
       if (this.tienTrinhs[i].id == id) {
