@@ -160,32 +160,32 @@ export class HethongComponent implements OnInit {
   onSubmitSJF() {
     this.Tg = 0;
     this.thoiGianChoTT = [];
-    this.tienTrinhs = [
-      {
-        "id": 1.5,
-        "tientrinh": "P1",
-        "thoigianxuly": 4,
-        "thoidiem": 0
-      },
-      {
-        "id": 2.5,
-        "tientrinh": "P2",
-        "thoigianxuly": 3,
-        "thoidiem": 6
-      },
-      {
-        "id": 3.5,
-        "tientrinh": "P3",
-        "thoigianxuly": 6,
-        "thoidiem": 4
-      },
-      {
-        "id": 4.5,
-        "tientrinh": "P4",
-        "thoigianxuly": 8,
-        "thoidiem": 3
-      }
-    ];
+    // this.tienTrinhs = [
+    //   {
+    //     "id": 1.5,
+    //     "tientrinh": "P1",
+    //     "thoigianxuly": 4,
+    //     "thoidiem": 0
+    //   },
+    //   {
+    //     "id": 2.5,
+    //     "tientrinh": "P2",
+    //     "thoigianxuly": 3,
+    //     "thoidiem": 6
+    //   },
+    //   {
+    //     "id": 3.5,
+    //     "tientrinh": "P3",
+    //     "thoigianxuly": 6,
+    //     "thoidiem": 4
+    //   },
+    //   {
+    //     "id": 4.5,
+    //     "tientrinh": "P4",
+    //     "thoigianxuly": 8,
+    //     "thoidiem": 3
+    //   }
+    // ];
 
     this.flagTableDocQuyen = true;
     this.soLuongTT = this.tienTrinhs.length;
@@ -197,19 +197,19 @@ export class HethongComponent implements OnInit {
 
     //sắp xếp tăng dần đầu vào
     //this.tienTrinhs.sort((a, b) => (a.thoidiem > b.thoidiem) ? 1 : -1)
-    let a: number[] = [];
-    let b: number[] = [];
-    let sum: number = 0;
+    let a: number[] = [];// mảng thời gian vào
+    let b: number[] = [];// mảng thời gian xử lý
+    let sum: number = 0;// tổng thời gian xử lý
     let thoiGianCho: ITgCho[] = [];
-    let temp = null;
+    let temp = null;// thời gian xử lý của Thời điểm được chọn
     let count = 0;
-    let pos = -1;
+    let pos = -1;// Vị trí của tiến trình được chọn
     this.tienTrinhs.forEach(element => {
       a.push(element.thoidiem);
       b.push(element.thoigianxuly);
       sum += element.thoigianxuly;
     });
-    let i = Math.min.apply(Math, a);
+    let i = Math.min.apply(Math, a);//thời điểm vào đầu tiên
 
     while (count <= a.length) {
       // debugger
@@ -261,38 +261,38 @@ export class HethongComponent implements OnInit {
   onSubmitSFFKhongDocQuyen() {
     this.Tg = 0;
     this.thoiGianChoTT = [];
-    this.tienTrinhs = [
-      {
-        "id": 1.5,
-        "tientrinh": "P1",
-        "thoigianxuly": 7,
-        "thoidiem": 0
-      },
-      {
-        "id": 2.5,
-        "tientrinh": "P2",
-        "thoigianxuly": 4,
-        "thoidiem": 2
-      },
-      {
-        "id": 3.5,
-        "tientrinh": "P3",
-        "thoigianxuly": 3,
-        "thoidiem": 4
-      },
-      {
-        "id": 4.5,
-        "tientrinh": "P4",
-        "thoigianxuly": 2,
-        "thoidiem": 7
-      },
-      {
-        "id": 5.5,
-        "tientrinh": "P5",
-        "thoigianxuly": 1,
-        "thoidiem": 9
-      }
-    ];
+    // this.tienTrinhs = [
+    //   {
+    //     "id": 1.5,
+    //     "tientrinh": "P1",
+    //     "thoigianxuly": 7,
+    //     "thoidiem": 0
+    //   },
+    //   {
+    //     "id": 2.5,
+    //     "tientrinh": "P2",
+    //     "thoigianxuly": 4,
+    //     "thoidiem": 2
+    //   },
+    //   {
+    //     "id": 3.5,
+    //     "tientrinh": "P3",
+    //     "thoigianxuly": 3,
+    //     "thoidiem": 4
+    //   },
+    //   {
+    //     "id": 4.5,
+    //     "tientrinh": "P4",
+    //     "thoigianxuly": 2,
+    //     "thoidiem": 7
+    //   },
+    //   {
+    //     "id": 5.5,
+    //     "tientrinh": "P5",
+    //     "thoigianxuly": 1,
+    //     "thoidiem": 9
+    //   }
+    // ];
 
     this.flagTableDocQuyen = true;
     this.soLuongTT = this.tienTrinhs.length;
@@ -304,20 +304,20 @@ export class HethongComponent implements OnInit {
 
     //sắp xếp tăng dần đầu vào
     //this.tienTrinhs.sort((a, b) => (a.thoidiem > b.thoidiem) ? 1 : -1)
-    let a: number[] = [];
-    let b: number[] = [];
+    let a: number[] = [];// mảng thời gian vào
+    let b: number[] = [];// mảng thời gian xử lý
     let thoiGianCho: ITgCho[] = [];
-    let temp = null;
-    let vao = 0;
-    let pos = -1;
-    let truocPos = -1;
+    let temp = null; //thời gian xử lý của Thời điểm được chọn
+    let vao = 0; // cờ của lần đầu so với các lần sau.
+    let pos = -1;// Vị trí của tiến trình được chọn (reset)
+    let truocPos = -1;// Vị trí của tiến trình được chọn (không reset để tính thời gian chờ).
     this.tienTrinhs.forEach(element => {
       a.push(element.thoidiem);
       b.push(element.thoigianxuly);
     });
-    let a1: number[] = [];
-    let i = Math.min.apply(Math, a);
-    let truocI = -1;
+    let a1: number[] = [];// mảng thời gian vào sau khi thực hiện 1 tiến trình sẽ trừ đi ptu thời gian vào vừa thực hiện.
+    let i = Math.min.apply(Math, a);// thời điểm
+    let truocI = -1; // thời điểm -1 của thời điểm.
     let batDauHetTĐ = 0;
     let lonNhatThoiDiem = Math.max.apply(Math, a);
     let dungLap = false;
