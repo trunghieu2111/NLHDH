@@ -25,6 +25,7 @@ export interface ITgCho {
 export class HethongComponent implements OnInit {
   soLuongTT = 0;
   dataF: any;
+  mauNen: number[] = [];
   Tg: number = 0;
   thoiGianChoTT: number[] = [];
   flagTableDocQuyen = false;
@@ -161,6 +162,7 @@ export class HethongComponent implements OnInit {
   }
 
   onSubmitSJF() {
+    this.mauNen = [];
     this.Tg = 0;
     this.thoiGianChoTT = [];
     // this.tienTrinhs = [
@@ -243,10 +245,12 @@ export class HethongComponent implements OnInit {
         }
       }
       ans.push(c);
+      this.mauNen.push(temp == null ? 0 : temp);
       i = i + (temp == null ? 0 : temp);
       count++;
     }
-    // console.log("tgcho:", thoiGianCho);
+    this.mauNen.pop();
+    // console.log("màu:", this.mauNen);
     thoiGianCho.sort((a, b) => (a.tientrinh > b.tientrinh) ? 1 : -1);
     thoiGianCho.forEach(item => {
       const tinhTg = item.thoigiandung - this.tienTrinhs[item.tientrinh].thoidiem - this.tienTrinhs[item.tientrinh].thoigianxuly;
@@ -262,6 +266,7 @@ export class HethongComponent implements OnInit {
   }
 
   onSubmitSFFKhongDocQuyen() {
+    this.mauNen = [];
     this.Tg = 0;
     this.thoiGianChoTT = [];
     // this.tienTrinhs = [
@@ -396,6 +401,7 @@ export class HethongComponent implements OnInit {
       }
 
       ans.push(c);
+      this.mauNen.push(temp == null ? 0 : temp);
       // console.log("dataatesst:", ans);
       // console.log("aaaa:", i1 + "i:" + i + "temp:" + temp);
       // console.log("a1:", a1);
@@ -413,6 +419,7 @@ export class HethongComponent implements OnInit {
     }
     this.dataF = ans;
 
+    this.mauNen.pop();
     // console.log("test:", thoiGianCho);
     thoiGianCho.sort((a, b) => (a.tientrinh > b.tientrinh) ? 1 : -1);
     thoiGianCho.forEach(item => {

@@ -10,7 +10,6 @@
                 <i nz-icon nzType="plus"></i>
             </button>
 
-
             <nz-modal [(nzVisible)]="isVisible" nzTitle="Thêm mới tiến trình" (nzOnCancel)="handleCancel()"
                 (nzOnOk)="handleOk()">
                 <form nz-form [formGroup]="submitFormDetails">
@@ -98,9 +97,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of dataF">
-                <td *ngFor="let i of data">
-                    {{i}}
+            <tr *ngFor="let data of dataF; let index = index">
+                <td *ngFor="let i of data; let f = first">
+                    <span *ngIf="i == mauNen[index] && f == false" style="color: red;">{{i}}</span>
+                    <span *ngIf="i != mauNen[index]">{{i}}</span>
                 </td>
             </tr>
         </tbody>
