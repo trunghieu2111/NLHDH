@@ -98,9 +98,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let data of dataF; let index = index">
-                <td *ngFor="let i of data; let f = first">
-                    <span *ngIf="i == mauNen[index] && f == false" style="color: red;">{{i}}</span>
-                    <span *ngIf="i != mauNen[index]">{{i}}</span>
+                <td *ngFor="let i of data; let f = first; let viTri = index">
+                    <span *ngIf="viTri == mauNen[index] && f == false" style="color: red;">{{i}}</span>
+                    <span *ngIf="viTri != mauNen[index]">{{i}}</span>
                 </td>
             </tr>
         </tbody>
